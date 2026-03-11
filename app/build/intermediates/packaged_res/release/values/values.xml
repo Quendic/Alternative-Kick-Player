@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_bg">#111111</color>
+    <color name="kick_green">#53fc18</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">Alternatif Kick Player</string>
+    <string name="favorites_title">Favorilerim</string>
+    <string name="live_badge">CANLI</string>
+    <string name="no_favorites">Henüz favori eklemediniz.</string>
+    <string name="offline_badge">OFFLINE</string>
+    <string name="streamer_name_hint">Yayıncı İsmi</string>
+    <string name="watch_button_text">İzle</string>
+    <style name="Theme.KickPlayer" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/kick_green</item>
+        <item name="android:statusBarColor">@color/black_bg</item>
+    </style>
+    <style name="Theme.KickPlayer.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

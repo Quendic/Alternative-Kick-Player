@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Alternatif Kick Player</string>
+    <string name="streamer_name_hint">Yayıncı İsmi</string>
+    <string name="watch_button_text">İzle</string>
+    <string name="favorites_title">Favorilerim</string>
+    <string name="no_favorites">Henüz favori eklemediniz.</string>
+    <string name="live_badge">CANLI</string>
+    <string name="offline_badge">OFFLINE</string>
+</resources>
