@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Guideline;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -31,6 +32,22 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final RecyclerView favoritesRecyclerView;
 
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final Guideline guideline;
+
   @NonNull
   public final ImageView logo;
 
@@ -50,13 +67,14 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button watchButton;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull TextView favoritesLabel,
-      @NonNull RecyclerView favoritesRecyclerView, @NonNull ImageView logo,
-      @NonNull ProgressBar progressBar, @NonNull TextInputEditText streamerEditText,
-      @NonNull TextInputLayout streamerInputLayout, @NonNull TextView title,
-      @NonNull Button watchButton) {
+      @NonNull RecyclerView favoritesRecyclerView, @Nullable Guideline guideline,
+      @NonNull ImageView logo, @NonNull ProgressBar progressBar,
+      @NonNull TextInputEditText streamerEditText, @NonNull TextInputLayout streamerInputLayout,
+      @NonNull TextView title, @NonNull Button watchButton) {
     this.rootView = rootView;
     this.favoritesLabel = favoritesLabel;
     this.favoritesRecyclerView = favoritesRecyclerView;
+    this.guideline = guideline;
     this.logo = logo;
     this.progressBar = progressBar;
     this.streamerEditText = streamerEditText;
@@ -104,6 +122,9 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.guideline;
+      Guideline guideline = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.logo;
       ImageView logo = ViewBindings.findChildViewById(rootView, id);
       if (logo == null) {
@@ -141,8 +162,8 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ConstraintLayout) rootView, favoritesLabel,
-          favoritesRecyclerView, logo, progressBar, streamerEditText, streamerInputLayout, title,
-          watchButton);
+          favoritesRecyclerView, guideline, logo, progressBar, streamerEditText,
+          streamerInputLayout, title, watchButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
